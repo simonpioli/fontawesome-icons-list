@@ -4,8 +4,9 @@
   "description": "Font Awesome icons list",
   "main": "index.js",
   "dependencies": {
-    "font-awesome": "^4.5.0",
-    "find-node-modules": "^1.0.4"
+    "css": "^2.2.1",
+    "findup-sync": "^2.0.0",
+    "font-awesome": "^4.5.0"
   },
   "devDependencies": {},
   "scripts": {

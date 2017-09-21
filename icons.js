@@ -2,9 +2,12 @@ var css  = require('css');
 var fs   = require('fs');
 var path = require('path');
 
-var fontAwesomeBase = require.resolve('font-awesome');
+var findup = require('findup-sync');
 
-var fontAwesomePath = path.join(fontAwesomeBase, 'css', 'font-awesome.css');
+var fontAwesomePath = findup('font-awesome.css');
+if (fontAwesomePath === null) {
+    fontAwesomePath = path.join(__dirname, 'node_modules', 'font-awesome', 'css', 'font-awesome.css');
+}
 var fontAwesomeCSS = fs.readFileSync(fontAwesomePath, 'utf8');
 
 function isFASelector(selector) {
