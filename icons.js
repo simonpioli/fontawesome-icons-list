@@ -48,4 +48,4 @@ fontAwesome.filter(function (obj) {
   });
 });
 
-module.exports = icons.sort();
+module.exports = icons;
