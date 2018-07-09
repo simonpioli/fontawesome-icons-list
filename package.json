@@ -1,12 +1,12 @@
 {
   "name": "fontawesome-icons-list",
-  "version": "4.5.1",
+  "version": "5.1.0",
   "description": "Font Awesome icons list",
   "main": "index.js",
   "dependencies": {
-    "css": "^2.2.1",
-    "findup-sync": "^2.0.0",
-    "font-awesome": "^4.5.0"
+    "@fortawesome/fontawesome-free": "^5.1.0",
+    "css": "^2.2.3",
+    "findup-sync": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {

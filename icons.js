@@ -2,9 +2,9 @@ var css  = require('css');
 var fs   = require('fs');
 var path = require('path');
 
-var fontAwesomePath = path.join(__dirname, '../', 'font-awesome', 'css', 'font-awesome.css');
+var fontAwesomePath = path.join(__dirname, '../', '@fortawesome', 'fontawesome-free', 'css', 'all.css');
 if (fs.existsSync(fontAwesomePath) === false) {
-    fontAwesomePath = path.join(__dirname, 'node_modules', 'font-awesome', 'css', 'font-awesome.css');
+    fontAwesomePath = path.join(__dirname, 'node_modules', '@fortawesome', 'fontawesome-free', 'css', 'all.css');
 }
 var fontAwesomeCSS = fs.readFileSync(fontAwesomePath, 'utf8');
 
