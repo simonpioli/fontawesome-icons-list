@@ -4,17 +4,18 @@
   "description": "Font Awesome icons list",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.1.0",
-    "css": "^2.2.3",
-    "findup-sync": "^2.0.0"
+    "findup-sync": "^2.0.0",
+    "lodash.foreach": "^4.5.0",
+    "napa": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "napa FortAwesome/Font-Awesome#5.1.0:Font-Awesome"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tuvistavie/fontawesome-icons-list.git"
+    "url": "git+https://github.com/simonpioli/fontawesome-icons-list.git"
   },
   "keywords": [
     "font-awesome",
@@ -22,9 +23,12 @@
     "list"
   ],
   "author": "Daniel Perez <daniel@claudetech.com>",
+  "contributors": [
+    "Simon Pioli <simon@simonpioli.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tuvistavie/fontawesome-icons-list/issues"
+    "url": "https://github.com/simonpioli/fontawesome-icons-list/issues"
   },
-  "homepage": "https://github.com/tuvistavie/fontawesome-icons-list#readme"
+  "homepage": "https://github.com/simonpioli/fontawesome-icons-list#readme"
 }
