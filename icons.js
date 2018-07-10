@@ -1,48 +1,21 @@
-var css  = require('css');
+var forEach = require('lodash.foreach');
 var fs   = require('fs');
 var path = require('path');
 
-var fontAwesomePath = path.join(__dirname, '../', '@fortawesome', 'fontawesome-free', 'css', 'all.css');
-if (fs.existsSync(fontAwesomePath) === false) {
-    fontAwesomePath = path.join(__dirname, 'node_modules', '@fortawesome', 'fontawesome-free', 'css', 'all.css');
-}
-var fontAwesomeCSS = fs.readFileSync(fontAwesomePath, 'utf8');
-
-function isFASelector(selector) {
-    return selector.indexOf('.fa') === 0;
+var fontAwesomeListFile = path.join(__dirname, '../', 'Font-Awesome', 'advanced-options', 'metadata', 'icons.json');
+if (fs.existsSync(fontAwesomeListFile) === false) {
+    fontAwesomeListFile = path.join(__dirname, 'node_modules', 'Font-Awesome', 'advanced-options', 'metadata', 'icons.json');
 }
 
-function hasFASelector(obj) {
-    for (var i in obj.selectors) {
-        if (isFASelector(obj.selectors[i])) {
-            return true;
+var fontAwesomeList = JSON.parse(fs.readFileSync(fontAwesomeListFile, 'utf-8'));
+
+var icons = {};
+forEach(fontAwesomeList, function (data, name) {
+    forEach(data.styles, function (style) {
+        if (!icons.hasOwnProperty(style)) {
+            icons[style] = [];
         }
-    }
-    return false;
-}
-
-function isFAIcon(obj) {
-    for (var i in obj.declarations) {
-        var declaration = obj.declarations[i];
-        if (declaration.type === 'declaration' && declaration.property === 'content') {
-            return true;
-        }
-    }
-    return false;
-}
-
-function isIcon (obj) {
-    return obj.type === 'rule' && hasFASelector(obj) && isFAIcon(obj);
-}
-
-
-var fontAwesome = css.parse(fontAwesomeCSS).stylesheet.rules;
-var icons = [];
-fontAwesome.filter(function (obj) {
-    return isIcon(obj);
-}).forEach(function (obj) {
-    obj.selectors.forEach(function (selector) {
-        icons.push(selector.split(':')[0].substring(1));
+        icons[style].push(name);
     });
 });
 
